@@ -15,7 +15,7 @@ const apiUrl = process.env.API_URL
 app.get('/', async (req, res) => {
   const now = dayjs()
   const fileName = `${now.format()}.json`;
-  const folderName = now.format('YYYY/mm/DD')
+  const folderName = now.format('YYYY/MM/DD')
 
   const responseData = await fetch(apiUrl)
   const response = await responseData.text()
