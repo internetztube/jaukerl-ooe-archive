@@ -1,6 +1,6 @@
 # jaukerl-ooe-archive
 
-In this repository the API data of [jaukerl-ooe-api.m8.at](jaukerl-ooe-api.m8.at) is archived.
+In this repository the API data of [jaukerl-ooe-api.m8.at](https://jaukerl-ooe-api.m8.at) is archived.
 Every minute the API endpoint is called and then the data is saved in this repository. 
 This's it.
 
