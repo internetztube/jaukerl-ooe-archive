@@ -18,6 +18,7 @@ const dataByDay = ({day, month, year}) => {
         const key = path.parse(fileName).name;
         const filePath = `${dayFolder}/${fileName}`
         const data = require(filePath)
+        if (!data || !data.data || !data.data.appointments) return
         fileMap[data.fetchedAt] = data.data.appointments.map((appointment) => {
             appointment.fetched_at = data.fetchedAt;
             appointment.filePath = `${relativeFilePath}/${fileName}`;
