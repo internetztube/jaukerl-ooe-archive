@@ -1,6 +1,11 @@
 # Use the official lightweight Node.js 14 image.
 # https://hub.docker.com/_/node
-FROM node:14-slim
+FROM node:14-alpine
+
+# Install Git
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
