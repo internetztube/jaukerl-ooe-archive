@@ -11,6 +11,7 @@ const cmd = (command, cwd) => {
 
 const cloneRepo = () => {
     fs.removeSync(checkoutFolder);
+    cmd(`ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts`)
     cmd(`git clone git@github.com:${owner}/${repo}.git ${checkoutFolder}`)
 }
 
