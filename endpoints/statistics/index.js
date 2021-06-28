@@ -14,11 +14,12 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 const index = async (req, res) => {
-    cloneRepo();
+
     const missingDays = await getMissingDays()
-    console.log(missingDays)
+    console.log({missingDays})
     for (let i = 0; i < missingDays.length; i++) {
         console.log(missingDays[i])
+        cloneRepo(missingDays[i]);
         const data = expiredByDay(missingDays[i])
         console.log(data)
         const result = await storeFile(exportFilePathGenerator(missingDays[i]), JSON.stringify(data))

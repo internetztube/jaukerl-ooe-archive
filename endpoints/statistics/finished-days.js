@@ -1,23 +1,29 @@
-const glob = require("glob");
-const path = require("path");
-const {checkoutFolder} = require('./config')
+const dayjs = require('dayjs')
+
+// https://gist.github.com/miguelmota/7905510
+const getDates = function (startDate, endDate) {
+    let dates = [],
+        currentDate = startDate,
+        addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        };
+    while (currentDate <= endDate) {
+        dates.push(currentDate);
+        currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+};
 
 const finishedDays = () => {
-    const dataFolder = `${checkoutFolder}/data/`
-    let result = glob.sync(dataFolder + '/**/*').map((filePath) => {
-        filePath = filePath.replace(dataFolder, '')
-        filePath = path.parse(filePath).dir
-        return filePath
-    })
-    result = [...new Set(result)]
-    result = result.map((date) => {
-        const {0: year, 1: month, 2: day} = date.split('/')
-        if (year && month && day) return {year, month, day}
-        return null
-    }).filter(Boolean)
-
+    const result = getDates(new Date(2021, 6 - 1, 15), new Date())
+        .map((date) => {
+            date = dayjs(date)
+            return {year: date.format('YYYY'), month: date.format('MM'), day: date.format('DD')}
+        })
     result.pop()
-    return result
+    return result;
 }
 
 module.exports = finishedDays
