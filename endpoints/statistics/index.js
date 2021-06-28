@@ -5,6 +5,7 @@ const cloneRepo = require('./clone-repo')
 const getMissingDays = require('./missing-days')
 const expiredByDay = require('./expired-by-day');
 const storeFile = require('../store-file')
+const addToManifest = require('./add-to-manifest')
 const {exportFilePathGenerator} = require('./config')
 
 const dayjs = require('dayjs')
@@ -23,7 +24,9 @@ const index = async (req, res) => {
         cloneRepo(missingDays[i]);
         const data = expiredByDay(missingDays[i])
         console.log(data)
-        const result = await storeFile(exportFilePathGenerator(missingDays[i]), JSON.stringify(data))
+        const filePath = exportFilePathGenerator(missingDays[i]);
+        const result = await storeFile(filePath, JSON.stringify(data))
+        await addToManifest(filePath)
         urls.push(result.data.content._links.html)
         break;
     }
