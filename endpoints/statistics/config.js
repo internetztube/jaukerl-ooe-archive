@@ -1,10 +1,7 @@
-const checkoutFolder = `${__dirname}/checkout`;
-
 module.exports = {
-    checkoutFolder,
-    exportFilePathGenerator: ({
-                                  year,
-                                  month,
-                                  day
-                              }) => `statistics-export/expired-appointments/${year}/${month}/${day}.json`
+    baseFolder: `${__dirname}/`,
+    checkoutFolder: `${__dirname}/checkout`,
+    exportFilePathGenerator: ({year, month, day}) => {
+        return `statistics-export/expired-appointments/${year}/${month}/${day}.json`
+    }
 }

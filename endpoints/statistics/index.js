@@ -15,7 +15,6 @@ dayjs.extend(timezone)
 
 const index = async (req, res) => {
     cloneRepo();
-    const urls = []
     const missingDays = await getMissingDays()
     console.log(missingDays)
     for (let i = 0; i < missingDays.length; i++) {
@@ -24,9 +23,8 @@ const index = async (req, res) => {
         console.log(data)
         const result = await storeFile(exportFilePathGenerator(missingDays[i]), JSON.stringify(data))
         res.json({success: true, url: result.data.content._links.html})
-        return;
+        break;
     }
-    res.json({success: false, message: 'Maybe no missing days?', missingDays})
 }
 
 module.exports = index

@@ -2,9 +2,9 @@
 # https://hub.docker.com/_/node
 FROM node:14-alpine
 
-# Install Git
+# Install wget
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh
+    apk add --no-cache bash wget
 
 
 # Create and change to the app directory.

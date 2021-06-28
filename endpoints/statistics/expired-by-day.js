@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 const dayjs = require('dayjs')
 const utc = require('dayjs/plugin/utc')
 const timezone = require('dayjs/plugin/timezone')
@@ -17,7 +16,12 @@ const dataByDay = ({day, month, year}) => {
     fs.readdirSync(dayFolder).forEach((fileName) => {
         const key = path.parse(fileName).name;
         const filePath = `${dayFolder}/${fileName}`
-        const data = require(filePath)
+        let data = null
+        try {
+            data = require(filePath)
+        } catch (e) {
+            return;
+        }
         if (!data || !data.data || !data.data.appointments) return
         fileMap[data.fetchedAt] = data.data.appointments.map((appointment) => {
             appointment.fetched_at = data.fetchedAt;
