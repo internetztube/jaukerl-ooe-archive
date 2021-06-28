@@ -40,7 +40,7 @@ const dataByDay = ({day, month, year}) => {
 const expiredAppointments = (appointments) => {
     return appointments.filter((appointment) => {
         const fetchedAt = dayjs.unix(appointment.fetched_at);
-        const startedAt = dayjs(appointment.startDate).tz("Europe/Vienna")
+        const startedAt = dayjs.tz(appointment.startDate, "Europe/Vienna")
         const diff = startedAt.diff(fetchedAt, 'minute')
         const check = diff <= 2
         appointment._diff = diff
