@@ -26,7 +26,6 @@ const index = async (req, res) => {
         console.log(data)
         const filePath = exportFilePathGenerator(missingDays[i]);
         const result = await storeFile(filePath, JSON.stringify(data))
-        await addToManifest(filePath)
         urls.push(result.data.content._links.html)
         break;
     }
