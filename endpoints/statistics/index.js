@@ -25,7 +25,7 @@ const index = async (req, res) => {
         const data = expiredByDay(missingDays[i])
         console.log(data)
         const filePath = exportFilePathGenerator(missingDays[i]);
-        const result = await storeFile(filePath, JSON.stringify(data))
+        const result = await storeFile(filePath, JSON.stringify(data, null, 2))
         urls.push(result.data.content._links.html)
         break;
     }
