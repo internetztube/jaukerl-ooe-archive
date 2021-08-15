@@ -5,7 +5,6 @@ const cloneRepo = require('./clone-repo')
 const getMissingDays = require('./missing-days')
 const expiredByDay = require('./expired-by-day');
 const storeFile = require('../store-file')
-const addToManifest = require('./add-to-manifest')
 const {exportFilePathGenerator} = require('./config')
 
 const dayjs = require('dayjs')
