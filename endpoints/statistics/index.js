@@ -20,7 +20,7 @@ const index = async (req, res) => {
     const urls = []
     for (let i = 0; i < missingDays.length; i++) {
         console.log(missingDays[i])
-        cloneRepo(missingDays[i]);
+        await cloneRepo(missingDays[i]);
         const data = expiredByDay(missingDays[i])
         console.log(data)
         const filePath = exportFilePathGenerator(missingDays[i]);
