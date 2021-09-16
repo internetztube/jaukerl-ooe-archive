@@ -16,9 +16,11 @@ const missingDays = async () => {
         const path = exportFilePathGenerator({year, month, day})
         try {
             const response = await octokit.request(`GET /repos/${owner}/${repo}/contents/${path}`, {owner, repo, path})
-            delete finishedDays[i]
         } catch (e) {
-            console.log(e.status)
+            console.log(path, e.status)
+            if (e.status === 404) {
+                delete finishedDays[i]
+            }
         }
     }
     return finishedDays.filter(Boolean)
