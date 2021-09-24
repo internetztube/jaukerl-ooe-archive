@@ -10,6 +10,7 @@ const token = process.env.GITHUB_TOKEN
 const missingDays = async () => {
     const finishedDays = getFinishedDays()
     const octokit = new Octokit({auth: token});
+    const result = []
 
     for (let i = 0; i < finishedDays.length; i++) {
         const {year, month, day} = finishedDays[i]
@@ -17,13 +18,12 @@ const missingDays = async () => {
         try {
             const response = await octokit.request(`GET /repos/${owner}/${repo}/contents/${path}`, {owner, repo, path})
         } catch (e) {
-            console.log(path, e.status)
             if (e.status === 404) {
-                delete finishedDays[i]
+                result.push(finishedDays[i])
             }
         }
     }
-    return finishedDays.filter(Boolean)
+    return result
 }
 
 module.exports = missingDays

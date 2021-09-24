@@ -46,7 +46,7 @@ const expiredAppointments = (appointments) => {
         appointment._diff = diff
         appointment._fetchedDate = `${fetchedAt}`
         appointment._startDate = `${startedAt}`
-        console.log('filter', diff, `${fetchedAt}`)
+        // console.log('filter', diff, `${fetchedAt}`)
         return check
     })
 }
