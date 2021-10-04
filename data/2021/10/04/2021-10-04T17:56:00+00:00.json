@@ -1,0 +1,16 @@
+{
+  "isFetching": false,
+  "fetchedAt": 1633370131,
+  "birthdate": "1990-01-01",
+  "data": {
+    "appointments": [],
+    "authorities": {
+      "message": "Interner Fehler, bitte den Support kontaktieren!",
+      "status": 500
+    },
+    "categories": {
+      "message": "Interner Fehler, bitte den Support kontaktieren!",
+      "status": 500
+    }
+  }
+}
