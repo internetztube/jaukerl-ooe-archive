@@ -1,0 +1,53 @@
+{
+  "expiredSlots": 1,
+  "appointments": [
+    {
+      "startDate": "2021-11-23T16:20:00",
+      "endDate": "2021-11-23T16:25:00",
+      "duration": -1,
+      "freeSlots": 1,
+      "categoryId": 9,
+      "authority": {
+        "id": 141,
+        "shortName": "BH-COVIDVBVV",
+        "name": "Bezirk Vöcklabruck - VARENA Vöcklabruck",
+        "adresse": "4840 Vöcklabruck, Linzerstraße 50",
+        "adminUnitId": 1,
+        "latitude": 0,
+        "longitude": 0,
+        "phone": " ",
+        "email": "noreply-covid19-impfung@ooe.gv.at",
+        "orgUnitId": -400029,
+        "isResidentialAuthority": false,
+        "districtId": "417",
+        "firstFreeSlot": "2021-11-23T16:20:00",
+        "freeSlots": 484
+      },
+      "category": {
+        "id": 9,
+        "adminUnitId": 1,
+        "adminUnitName": "COVID-Impfservice",
+        "categoryGroup": "COVID-19 Impfung",
+        "description": "Pfizer",
+        "header": "COVID-19 Schutzimpfung",
+        "link": "https://www.sozialministerium.at/dam/jcr:e11b58c1-71d3-47d4-b059-5960bfe39ef5/Schutzimpfung_Covid-19",
+        "info": "Pfizer",
+        "defaultText": "",
+        "defaultTextMandatory": false,
+        "primaryVaccination": true,
+        "abbreviation": "Pfi",
+        "colorCode": "00ff88",
+        "daysBetweenFrom": 19,
+        "daysBetweenTo": 42,
+        "daysBetweenRecommended": 21
+      },
+      "startDateTimestamp": 1637684400000,
+      "uid": "2021-11-23T16:20:00__141__9",
+      "fetched_at": 1637680777,
+      "filePath": "data/2021/11/23/2021-11-23T15:20:00+00:00.json",
+      "_diff": 0,
+      "_fetchedDate": "Tue, 23 Nov 2021 15:19:37 GMT",
+      "_startDate": "Tue, 23 Nov 2021 15:20:00 GMT"
+    }
+  ]
+}
